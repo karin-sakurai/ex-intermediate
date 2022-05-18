@@ -17,7 +17,6 @@ public class HotelController {
 	@Autowired
 	private HotelService service;
 
-
 	@RequestMapping("")
 	public String index() {
 		return "/exam2/hotelsearch";
