@@ -29,7 +29,7 @@
          </tr>
          <tr>
             <th>価格</th>
-            <td th:text="${list.price}"> </td>
+            <td th:text="${#numbers.formatInteger(list.price,2,'COMMA')}"> </td>
          </tr> 
     </table>
     
