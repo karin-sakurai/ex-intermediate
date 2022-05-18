@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="teamdetail.html" th:action="@{/baseball/showDetail}" th:object="${baseballForm}" method="post">
+
+        <h3>球団名</h3>
+        <span th:text="${baseball.teamName}"> </span>
+
+        <h3>本拠地</h3>
+        <span th:text="${baseball.headquarters}"> </span>
+
+        <h3>発足</h3>
+        <span th:text="${baseball.inauguration}"> </span>
+
+
+        <h3>歴史</h3>
+        
+        <th:block th:if="${baseball.history}">
+    <th:block th:each="str, stat : ${baseball.history.split('\r\n|\r|\n', -1)}">
+        <th:block th:text="${str}"/>
+        <br th:if="${!stat.last}"/>
+    </th:block>
+</th:block> <br>
+
+        <input type="button" onclick="history.back();" value="戻る">
+
+    </form>
+</body>
+</html>
